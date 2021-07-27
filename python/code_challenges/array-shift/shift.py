@@ -8,11 +8,11 @@ def insertShiftArray(arr,a):
     return 'error'
   newArr=[]
   if len(arr)%2==0:
-    t=int(len(arr)/2)
+    n=int(len(arr)/2)
   else:
-    t=int(len(arr)/2)+1
-  newArr = arr[0:t]+[a]
-  newArr = newArr+arr[t:len(arr)]
+    n=int(len(arr)/2)+1
+  newArr = arr[0:n]+[a]
+  newArr = newArr+arr[n:len(arr)]
 
   return newArr
 
