@@ -34,21 +34,6 @@ Takes any value as an argument and adds a new node with that value to the head o
 
 Takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
 
-### append
-
-Takes any value as an argument and adds a new node with that value to the end of the list.
-
-### insertBefore
-
-Add a new node with the given newValue immediately before the first value node
-
-### insertAfter
-
-Add a new node with the given newValue immediately after the first value node
-
-### kthFromEnd
-
-Takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list.
 
 ### str
 

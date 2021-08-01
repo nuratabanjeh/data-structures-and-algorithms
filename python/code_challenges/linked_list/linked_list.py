@@ -77,9 +77,5 @@ if __name__ == "__main__":
     lList.includes(4)
     print(lList.includes(4))
     print(lList)
-    # lList.append(2)
-    # lList.append(3)
-    # lList.append(2)
-    # lList.append(1)
-
+  
  
