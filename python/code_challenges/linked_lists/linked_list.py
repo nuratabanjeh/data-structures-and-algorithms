@@ -20,6 +20,22 @@ class LinkedList:
               self.head.next=current
         except Exception as error:
           raise Exception(f"Something Wrong : {error}")
+    def append(self, value='null'):
+    
+        try:
+            print(self, '******************55555')
+            node = Node(value)
+            if not self.head:
+                self.head = node
+            else:
+                print('********',self)
+
+                current=self.head
+                while current.next != None:
+                  current = current.next
+                current.next = node    
+        except Exception as error:
+          raise Exception(f"Something Wrong : {error}")
 
 
 
@@ -54,7 +70,35 @@ class LinkedList:
             current=current.next
         return output
 
+    def addBefore(self, value, newOne):
+        newNode = Node(newOne)
+        if not self.head :
+            self.head = newNode
+        else:
+            current = self.head
+            while current.value != value:
+                current=current.next
+        exactNode = Node(value)
+        exactNode.next=current.next
+        current.value=newNode.value
+        current.next=exactNode
 
+    def addAfter(self, value, newOne):
+        print("tesssssssssst")
+        newNode = Node(newOne)
+         #i made a new node {value:99, next:none}
+        if not self.head :
+            self.head = newNode
+            
+        else:
+            current= self.head
+            while current.value != value:
+                current= current.next
+               
+        newNode.next = current.next
+        current.next=newNode            
+       
+                    
 
 
 
@@ -77,5 +121,9 @@ if __name__ == "__main__":
     lList.includes(4)
     print(lList.includes(4))
     print(lList)
-  
- 
+    lList.append(10)
+    print(lList)
+    lList.addBefore(5,15)
+    print(lList)
+    lList.addAfter(15,99)
+    print(lList)
