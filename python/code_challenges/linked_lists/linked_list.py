@@ -1,7 +1,8 @@
+
 class Node:
-    def __init__(self, value):
+    def __init__(self, value= None, next=None):
         self.value = value
-        self.next = None
+        self.next = next
 
 
 class LinkedList:
@@ -98,11 +99,35 @@ class LinkedList:
         newNode.next = current.next
         current.next=newNode            
        
-                    
+    def Kth (self, k):
+        newNode= Node(k)
+        indexList=[]
+        if not self.head:
+            print('Exception')   
 
-
-
-
+        current =self.head
+        while current.next:
+            indexList.append(current.value)
+            current=current.next
+        indexList.append(current.value)
+        indexList.reverse()  
+        print(indexList)
+        i=0  
+        for value in indexList:
+            if i == k:
+                print(value)
+                break
+            i+=1 
+        if k > len(indexList) :
+                print('Exception') 
+                return          
+        if k == len(indexList):
+            print('Exception')    
+            return
+        if k < 0:
+            print('Exception')    
+            return
+    
 
 
 
@@ -126,4 +151,12 @@ if __name__ == "__main__":
     lList.addBefore(5,15)
     print(lList)
     lList.addAfter(15,99)
+    print(lList)
+    lList.Kth(3)
+    print(lList)
+    lList.Kth(7)
+    print(lList)
+    lList.Kth(5)
+    print(lList)
+    lList.Kth(-5)
     print(lList)

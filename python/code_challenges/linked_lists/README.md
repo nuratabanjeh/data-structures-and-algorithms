@@ -20,6 +20,7 @@ The class should contain the following methods
 
 * add after
 
+* kth from end
 
 ## Approach & Efficiency
 What approach did you take? 
@@ -32,7 +33,7 @@ insert
 
  space : O(1)
 
- includes : 
+includes : 
 
 time : O(n) 
 
@@ -62,7 +63,17 @@ time : O(n)
 
 space : O(1)
 
+kth : 
+
+time : O(n)
+
+space : O(1)
 
 ## Solution
 
 [link](linked_list.py)
+
+
+## WhiteBoard:
+
+![kth](kth.jpg)
