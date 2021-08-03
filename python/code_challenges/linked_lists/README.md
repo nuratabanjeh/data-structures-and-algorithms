@@ -69,6 +69,13 @@ time : O(n)
 
 space : O(1)
 
+Zip:
+
+time : O(n)
+
+space : O(1)
+
+
 ## Solution
 
 [link](linked_list.py)
@@ -77,3 +84,4 @@ space : O(1)
 ## WhiteBoard:
 
 ![kth](kth.jpg)
+![zip](zip.jpg)

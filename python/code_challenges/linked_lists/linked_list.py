@@ -1,4 +1,7 @@
 
+from typing import Counter
+
+
 class Node:
     def __init__(self, value= None, next=None):
         self.value = value
@@ -24,12 +27,12 @@ class LinkedList:
     def append(self, value='null'):
     
         try:
-            print(self, '******************55555')
+            print(self)
             node = Node(value)
             if not self.head:
                 self.head = node
             else:
-                print('********',self)
+                print(self)
 
                 current=self.head
                 while current.next != None:
@@ -128,6 +131,25 @@ class LinkedList:
             print('Exception')    
             return
     
+    def zipList(self,list2,lList):
+        current1=self.head
+        current2=list2.head
+        print(current1.value,'8888')
+        print(current2.value)
+        newLl= LinkedList()
+        newLl.insert(current1.value)
+        current1=current1.next
+        counter=0
+        while current1 or current2:
+            if counter % 2 == 0 and current2:
+                newLl.append(current2.value)
+                current2=current2.next
+            if counter % 2 == 1 and current1 :
+                newLl.append(current1.value)
+                current1=current1.next
+            counter+=1
+        print(newLl)
+
 
 
 
@@ -160,3 +182,10 @@ if __name__ == "__main__":
     print(lList)
     lList.Kth(-5)
     print(lList)
+
+    lList1=LinkedList()
+    lList1.insert(50)
+    lList1.append(60)
+    lList1.append(70)
+    print(lList1)
+    lList1.zipList(lList,lList1)
