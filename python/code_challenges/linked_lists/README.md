@@ -66,3 +66,11 @@ space : O(1)
 ## Solution
 
 [link](linked_list.py)
+
+## whiteboards
+
+![append](append.jpg)
+
+![addBefore](addBefore.jpg)
+
+![addAfter](addAfter.jpg)
