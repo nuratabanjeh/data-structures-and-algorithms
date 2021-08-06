@@ -10,7 +10,7 @@ class LinkedList:
 
     def insert(self, value='null'):
       
-        try:
+        # try:
           node = Node(value)
           if not self.head:
               self.head = node
@@ -18,14 +18,14 @@ class LinkedList:
               current = self.head
               self.head= node
               self.head.next=current
-        except Exception as error:
-          raise Exception(f"Something Wrong : {error}")
+        # except Exception as error:
+        #   raise Exception(f"Something Wrong : {error}")
 
 
 
     def includes(self,n):
         
-        try:
+        # try:
           result=False
 
           current = self.head
@@ -36,8 +36,8 @@ class LinkedList:
                   break
               current=current.next
           return result
-        except Exception as error:
-          raise Exception(f"Something Wrong : {error}")
+        # except Exception as error:
+        #   raise Exception(f"Something Wrong : {error}")
 
    
 
@@ -48,9 +48,12 @@ class LinkedList:
         while current:
             value = current.value
             if current.next is None:
-                output += f"( {value} ) => None"
+                output += "( "+ str(value) +") => None "
+                # output += f"( {value} ) => None"
+                # print(output)
                 break
-            output = output + f"( {value} ) => "
+            output = output +  "( "+ str(value) +") =>"
+            # output = output + f"( {value} ) => "
             current=current.next
         return output
 
@@ -67,6 +70,7 @@ class LinkedList:
 if __name__ == "__main__":
 
     lList = LinkedList()
+    print(lList.head)
     print(lList)
     lList.insert(5)
     print(lList)
@@ -79,5 +83,12 @@ if __name__ == "__main__":
     print(lList)
     print(lList.includes(300))
     print(lList)
+
+    lList = LinkedList()
+    actual = lList.insert(6)
+    excepted = 6
+    print(actual)
+
+    lList.__str__()
   
  
