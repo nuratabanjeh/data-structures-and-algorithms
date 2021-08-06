@@ -10,7 +10,7 @@ class LinkedList:
 
     def insert(self, value='null'):
       
-        try:
+        # try:
           node = Node(value)
           if not self.head:
               self.head = node
@@ -18,11 +18,11 @@ class LinkedList:
               current = self.head
               self.head= node
               self.head.next=current
-        except Exception as error:
-          raise Exception(f"Something Wrong : {error}")
+        # except Exception as error:
+        #   raise Exception(f"Something Wrong : {error}")
     def append(self, value='null'):
     
-        try:
+        # try:
             print(self, '******************55555')
             node = Node(value)
             if not self.head:
@@ -34,14 +34,14 @@ class LinkedList:
                 while current.next != None:
                   current = current.next
                 current.next = node    
-        except Exception as error:
-          raise Exception(f"Something Wrong : {error}")
+        # except Exception as error:
+        #   raise Exception(f"Something Wrong : {error}")
 
 
 
     def includes(self,n):
         
-        try:
+        # try:
           result=False
 
           current = self.head
@@ -52,8 +52,8 @@ class LinkedList:
                   break
               current=current.next
           return result
-        except Exception as error:
-          raise Exception(f"Something Wrong : {error}")
+        # except Exception as error:
+        #   raise Exception(f"Something Wrong : {error}")
 
    
 
@@ -64,9 +64,9 @@ class LinkedList:
         while current:
             value = current.value
             if current.next is None:
-                output += f"( {value} ) => None"
+                output += "( "+str(value)+" ) => None"
                 break
-            output = output + f"( {value} ) => "
+            output = output + "( "+str(value)+" ) => "
             current=current.next
         return output
 
