@@ -6,6 +6,7 @@ class Node():
 class Stack:
     def __init__(self, node=None):
         self.top= node
+        
 
 
     def push(self, value):
@@ -20,11 +21,14 @@ class Stack:
             self.top = self.top.next
             temp.next = None
             return temp.value
-        except Exception as error:
-                raise Exception(f"empty stack")
+        except:
+            return("empty")
 
     def peek(self):
-        return self.top.value
+        try:
+           return self.top.value
+        except:
+            return("empty")
 
     def isEmpty(self):
         return not self.top
@@ -49,16 +53,22 @@ class Queue:
         return self
 
     def dequeue(self):
-        remove=self.front.value
-        self.front=self.front.next
-        return remove
+        try:
+            remove=self.front.value
+            self.front=self.front.next
+            return remove
+        except: 
+            return "empty"
 
     def peek(self):
-        return self.front.value
+        try:
+            return self.front.value
+        except:
+            return("empty")
 
     def isEmpty(self):
         if (not self.rear and self.front) or (self.rear and not self.front):
-          raise Exception("Something wrong")
+          raise Exception("empty")
         return not self.rear
 
 
