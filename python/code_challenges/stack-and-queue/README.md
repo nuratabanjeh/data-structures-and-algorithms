@@ -1,11 +1,36 @@
 # Challenge Summary
-<!-- Description of the challenge -->
+
+Create a new class called pseudo queue.
+
+Do not use an existing Queue.
+
+Instead, this PseudoQueue class will implement our standard 
+
+queue interface (the two methods listed below),
+
+Internally, utilize 2 Stack instances to create and manage the 
+
+queue
+
+enqueue and dequeue
+
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+
+in progress
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+enqueue:
+ time : O(1)
+ 
+ space: O(1)
+
+ dequeue:
+ 
+ time: o(1)
+
+ space : O(1)
 
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
+[solution](pseudo.py)

@@ -63,13 +63,58 @@ class Queue:
             raise Exception("Something's Wrong")
         
 
-# if __name__=='__main__':
-    # stack=Stack()
-    # stack.push(3)
-    # stack.push(2)
-    # stack.push(1)
-    # stack.pop()
 
-    # queue=Queue()
-    # queue.enqueue(2)
-    # queue.peek()
+class PseudoQueue:
+    def __init__(self):
+        self.data=Stack()
+
+    def enqueue(self,value):
+        self.data.push(value)
+        return self
+
+    def dequeue(self):
+        if not self.data.top:
+            return "empty"
+        current=self.data.top
+        newList=[]
+        while current:
+            newList.append(current.value)
+            current=current.next
+        for i,x in enumerate(range(len(newList),0,-1)):
+            if i<len(newList)-1:
+                self.data.push(x)
+        return self
+
+#####################
+
+def test_enqueue():
+    pQueue= PseudoQueue()
+    pQueue.enqueue(1)
+    pQueue.enqueue(2)
+    pQueue.enqueue(3)
+    actual = pQueue.data.top.value
+    excepted = 3
+    assert actual == excepted
+
+def test_dequeue():
+    pQueue= PseudoQueue()
+    pQueue.enqueue(1)
+    pQueue.enqueue(2)
+    pQueue.enqueue(3)
+    pQueue.dequeue()
+    actual = pQueue.data.top.value
+    excepted = 2
+    assert actual == excepted
+
+def test_empty_dequeue():
+    pQueue= PseudoQueue()
+    pQueue.dequeue()
+    actual = "empty"
+    excepted = "empty"
+    assert actual == excepted
+
+
+
+
+
+
