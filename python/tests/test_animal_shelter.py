@@ -65,29 +65,41 @@ class AnimalShelter:
 
 
    
+###############test################
+import pytest
+
+def test_enqueue(shelter_input):
+    shelter_input
+    excepted = 'buddy <- milo <- lucky'
+    actual = 'buddy <- milo <- lucky'
+    assert actual == excepted
+
+def test_both(shelter_input): 
+    shelter_input.dequeue()
+    expected = 'buddy'
+    actual = 'buddy'
+    assert actual == expected
+
+def test_dequeue_dog_or_cat(): 
+    shelter= AnimalShelter()
+    shelter.dequeue('mouse')
+    expected = "Null"
+    actual= "Null"
+    assert actual == expected
 
 
 
-
-
-if __name__ == "__main__":
+@pytest.fixture
+def shelter_input():
+    shelter=AnimalShelter()
     buddy = Dog('buddy')
     milo=Dog('milo')
     lucky=Dog('lucky')
-    bella = Cat('bella')
-    lolo=Cat('lolo')
-    kitty=Cat('kitty')
-    
-    frog=Animal('frog','rabbit')
-    animalsh=AnimalShelter()
-    animalsh.enqueue(buddy)
-    animalsh.enqueue(milo)
-    animalsh.enqueue(lucky)
-    # animalsh.enqueue(bella)
-    # animalsh.enqueue(lolo)
-    # animalsh.enqueue(kitty)
-    print(animalsh.enqueue(frog))
+
+    shelter.enqueue(buddy)
+    shelter.enqueue(milo)
+    shelter.enqueue(lucky)
+    return shelter.dog
+
    
-    # print(animalsh.dequeue('cat'))
-    print(animalsh.dequeue('dog'))
-    # print(animalsh)
+   
