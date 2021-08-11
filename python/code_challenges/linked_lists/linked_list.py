@@ -131,24 +131,51 @@ class LinkedList:
             print('Exception')    
             return
     
-    def zipList(self,list2,lList):
-        current1=self.head
+    def zipList(list1,list2):
+        current1=list1.head
         current2=list2.head
-        print(current1.value,'8888')
-        print(current2.value)
-        newLl= LinkedList()
-        newLl.insert(current1.value)
-        current1=current1.next
-        counter=0
-        while current1 or current2:
-            if counter % 2 == 0 and current2:
-                newLl.append(current2.value)
-                current2=current2.next
-            if counter % 2 == 1 and current1 :
-                newLl.append(current1.value)
-                current1=current1.next
-            counter+=1
-        print(newLl)
+        if current1 == None and current2 == None:
+          return("empty")
+
+        if not current1:
+            list1.head = list2.head
+            return list1.head
+
+        if not current2:
+            return list1.head
+
+        temp = current2.next
+
+        while current1.next and current2.next:
+            current1.next, current2.next = current2, current1.next
+            current1 = current2.next
+            current2, temp = temp, temp.next
+
+        if not current1.next:
+            current1.next = current2
+            return list1.head
+
+        if not current2.next:
+            current1.next, current2.next = current2, current1.next
+            return list1.head
+
+
+
+        # print(current1.value,'8888')
+        # print(current2.value)
+        # newLl= LinkedList()
+        # newLl.insert(current1.value)
+        # current1=current1.next
+        # counter=0
+        # while current1 or current2:
+        #     if counter % 2 == 0 and current2:
+        #         newLl.append(current2.value)
+        #         current2=current2.next
+        #     if counter % 2 == 1 and current1 :
+        #         newLl.append(current1.value)
+        #         current1=current1.next
+        #     counter+=1
+        # print(newLl)
 
 
 
@@ -158,34 +185,35 @@ class LinkedList:
 if __name__ == "__main__":
 
     lList = LinkedList()
-    print(lList)
+    # print(lList)
     lList.insert(5)
-    print(lList)
+    # print(lList)
     lList.insert(6)
-    print(lList)
-    print(lList.includes(6))
-    print(lList)
-    lList.includes(4)
-    print(lList.includes(4))
-    print(lList)
+    # print(lList)
+    # print(lList.includes(6))
+    # print(lList)
+    # lList.includes(4)
+    # print(lList.includes(4))
+    # print(lList)
     lList.append(10)
-    print(lList)
-    lList.addBefore(5,15)
-    print(lList)
-    lList.addAfter(15,99)
-    print(lList)
-    lList.Kth(3)
-    print(lList)
-    lList.Kth(7)
-    print(lList)
-    lList.Kth(5)
-    print(lList)
-    lList.Kth(-5)
+    # print(lList)
+    # lList.addBefore(5,15)
+    # print(lList)
+    # lList.addAfter(15,99)
+    # print(lList)
+    # lList.Kth(3)
+    # print(lList)
+    # lList.Kth(7)
+    # print(lList)
+    # lList.Kth(5)
+    # print(lList)
+    # lList.Kth(-5)
     print(lList)
 
     lList1=LinkedList()
     lList1.insert(50)
     lList1.append(60)
     lList1.append(70)
+    # print(lList1)
+    lList1.zipList(lList)
     print(lList1)
-    lList1.zipList(lList,lList1)
