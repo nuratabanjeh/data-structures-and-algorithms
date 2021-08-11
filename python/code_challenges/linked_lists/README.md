@@ -76,4 +76,4 @@ space : O(1)
 
 ## WhiteBoard:
 
-![kth](kth.jpg)
+![kth](kth1.jpg)

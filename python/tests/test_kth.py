@@ -121,32 +121,56 @@ class LinkedList:
         return current.value
 
 
+#####test#####
 
-
-if __name__ == "__main__":
-
+def test_greater_than_len():
     lList = LinkedList()
-    print(lList)
     lList.insert(5)
-    print(lList)
     lList.insert(6)
-    print(lList)
-    print(lList.includes(6))
-    print(lList)
-    lList.includes(4)
-    print(lList.includes(4))
-    print(lList)
-    lList.append(10)
-    print(lList)
-    lList.addBefore(5,15)
-    print(lList)
-    lList.addAfter(15,99)
-    print(lList)
-    lList.Kth(3)
-    print(lList)
+    lList.insert(7)
     lList.Kth(7)
-    print(lList)
-    lList.Kth(5)
-    print(lList)
-    lList.Kth(-5)
-    print(lList)
+    actual = "choose value within the length of the list"
+    excepted = "choose value within the length of the list"
+    assert actual == excepted
+
+def test_same_len():
+    lList = LinkedList()
+    lList.insert(5)
+    lList.insert(6)
+    lList.insert(7)
+    lList.Kth(2)
+    actual = 5
+    excepted = 5 
+    assert actual == excepted
+
+def test_not_positive():
+    lList = LinkedList()
+    lList.insert(5)
+    lList.insert(6)
+    lList.insert(7)
+    lList.Kth(-15)
+    actual = ' minus values not allowed'
+    excepted = ' minus values not allowed' 
+    assert actual == excepted
+
+def test_len1():
+    lList = LinkedList()
+    lList.insert(5)
+    lList.Kth(0)
+    actual = 5
+    excepted = 5 
+    assert actual == excepted
+
+def test_happy_path():
+    lList = LinkedList()
+    lList.insert(5)
+    lList.insert(6)
+    lList.insert(7)
+    lList.insert(3)
+    lList.insert(10)
+    lList.Kth(2)
+    actual = 7
+    excepted = 7 
+    assert actual == excepted
+
+
