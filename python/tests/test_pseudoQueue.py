@@ -31,6 +31,7 @@ class Stack:
         print(self.top.value)
         return self.top.value
 
+import pytest
 
 class PseudoQueue:
     def __init__(self):
@@ -63,17 +64,30 @@ class PseudoQueue:
         return deqvalue
     
         
+def test_happypath():
+    queue= PseudoQueue()
+    queue.enqueue(10)
+    queue.enqueue('nura')
+    queue.enqueue(20)
+    queue.enqueue(-8)
+    actual = queue.front.top.value
+    excepted = queue.front.top.value
+    assert actual == excepted
 
-if __name__=='__main__':
-  queue = PseudoQueue()
-  queue.enqueue(10)
-  print(queue.front.top.value)
-  queue.enqueue(20)
-  print(queue.front.top.value)
-  queue.enqueue(30)
-  print(queue.front.top.value)
-  queue.enqueue(40)
-  print(queue.front.top.value)
-  queue.dequeue()
- 
-  print(queue.front.top.value)
+def test_no_value():
+    queue= PseudoQueue()
+    queue.enqueue()
+    actual ="no value"
+    excepted ="no value"
+    assert actual == excepted
+
+def test_no_val_for_dequeue():
+    queue= PseudoQueue()
+    queue.dequeue()
+    actual = 'Queue is empty'
+    excpected='Queue is empty'
+    assert actual == excpected
+
+
+
+    
