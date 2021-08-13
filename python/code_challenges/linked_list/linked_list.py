@@ -57,50 +57,38 @@ class LinkedList:
             current=current.next
         return output
 
-# import pytest
-def test_empty_linkedList():
-    lList = LinkedList()
-    actual = lList.head
-    assert actual == None
 
-def test_insert():
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+
     lList = LinkedList()
+    print(lList.head)
+    print(lList)
+    lList.insert(5)
+    print(lList)
     lList.insert(6)
-    lList.insert(8)
-    actual= lList.head.value
-    actualNone = lList.head.next.value
+    print(lList)
+    print(lList.includes(6))
+    print(lList)
+    lList.includes(4)
+    print(lList.includes(4))
+    print(lList)
+    print(lList.includes(300))
+    print(lList)
+
+    lList = LinkedList()
+    actual = lList.insert(6)
     excepted = 6
     print(actual)
-    
-    assert lList.head.value == 8
-    assert actualNone == 6
 
-def test_includes():
-    lList=LinkedList()
-    lList.insert(7)
-    lList.insert(15)
-    lList.insert(70)
-    actual=lList.includes(70)
-    excepted=True
-
-    assert actual == excepted
-    
-def test_False_includes():
-    lList=LinkedList()
-    lList.insert(7)
-    lList.insert(15)
-    actual=lList.includes(70)
-    excepted=False
-
-    assert actual == excepted
-
-def test_everyThing_print():
-    lList=LinkedList()
-    lList.insert(10)   
-    lList.insert(20)    
-    lList.insert(30)   
     lList.__str__()
-    actual = '( 30) =>( 20) =>( 10) => None'
-    excepted = '( 30) =>( 20) =>( 10) => None'
-
-    assert actual == excepted
+  
+ 
