@@ -101,20 +101,67 @@ class BinarySearchTree(BinaryTree):
                 currentNode = currentNode.right
         
         return False
+###########testsss##########
 
-
-
-if __name__ == "__main__":
+def test_empty_tree():
     tree = BinarySearchTree()
+    actual = tree.root
+    expected = None
+    assert actual == expected
+
+def test_single_root():
+    tree = BinarySearchTree()
+    tree.add(1)
+    
+    actual = tree.root.value
+    excepted = 1 
+    assert actual == excepted
+
+def test_add_left_and_right():
+    tree=BinarySearchTree()
     tree.add(1)
     tree.add(2)
     tree.add(3)
     tree.add(4)
-    print(tree.root.left,'************')
-    print(tree.pre_order())
-    print(tree.in_order())
-    print(tree.post_order())
-    print(tree.contains(1))
-    print(tree.contains(5))
+    actualRight = tree.root.right.value
+    actualLeft = tree.root.left
+    expectedRight = 2
+    expectedLeft = None
+    assert actualRight == expectedRight 
+    assert actualLeft == expectedLeft 
 
-    ## [2,1,4,3]
+def test_preOrder():
+    tree=BinarySearchTree()
+    tree.add(1)
+    tree.add(2)
+    tree.add(3)
+    tree.add(4)
+    actual = tree.pre_order()
+    expected = [1, 2, 3, 4]
+    assert actual == expected
+
+def test_inOrder():
+    tree=BinarySearchTree()
+    tree.add(1)
+    tree.add(2)
+    tree.add(3)
+    tree.add(4)
+    actual = tree.in_order()
+    expected = [1, 2, 3, 4]
+    assert actual == expected
+
+def test_postOrder():
+    tree=BinarySearchTree()
+    tree.add(1)
+    tree.add(2)
+    tree.add(3)
+    tree.add(4)
+    actual = tree.post_order()
+    expected = [4, 3, 2, 1]
+    assert actual == expected
+
+
+
+
+
+
