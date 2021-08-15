@@ -54,6 +54,25 @@ class BinaryTree:
         _post_order(self.root)
         return treeList
 
+    def tree_max(self):
+        if not self.root:
+            return "No tree"
+    
+        treeList = self.pre_order()
+        print(treeList)
+        max=0
+        for value in treeList:
+
+            if max < value :
+                max = value 
+        
+        return max
+
+
+
+
+
+
 class BinarySearchTree(BinaryTree):
     def add(self,value):
         
@@ -109,12 +128,13 @@ if __name__ == "__main__":
     tree.add(1)
     tree.add(2)
     tree.add(3)
-    tree.add(4)
-    print(tree.root.left,'************')
-    print(tree.pre_order())
-    print(tree.in_order())
-    print(tree.post_order())
-    print(tree.contains(1))
-    print(tree.contains(5))
+    tree.add(70)
+    # print(tree.root.left,'************')
+    # print(tree.pre_order())
+    # print(tree.in_order())
+    # print(tree.post_order())
+    print(tree.tree_max())
+    # print(tree.contains(1))
+    # print(tree.contains(5))
 
     ## [2,1,4,3]

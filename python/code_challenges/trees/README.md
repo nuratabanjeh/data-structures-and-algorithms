@@ -101,3 +101,11 @@ Post-order: left >> right >> root
 add a new node with value 
 
 contains Returns boolean if the value that sent within the function is exist or not 
+
+## whiteBoard:
+
+![img](tree-max.jpg)
+
+## solution 
+
+[link](trees.py)

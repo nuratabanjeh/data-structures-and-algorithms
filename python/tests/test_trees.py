@@ -54,6 +54,23 @@ class BinaryTree:
         _post_order(self.root)
         return treeList
 
+    
+    def tree_max(self):
+        if not self.root:
+            return "No tree"
+    
+        treeList = self.pre_order()
+        print(treeList)
+        max=0
+        for value in treeList:
+
+            if max < value :
+                max = value 
+        
+        return max
+
+
+
 class BinarySearchTree(BinaryTree):
     def add(self,value):
         
@@ -161,6 +178,21 @@ def test_postOrder():
     assert actual == expected
 
 
+def test_happyPath():
+    treeSearch = BinarySearchTree()
+    treeSearch.add(1)
+    treeSearch.add(2)
+    treeSearch.add(3)
+    treeSearch.add(40)
+    actual = treeSearch.tree_max()
+    expected = 40
+    assert actual == expected 
+
+def test_expectedFaliure():
+    treeSearch = BinarySearchTree()
+    actual = treeSearch.tree_max()
+    expected = "No tree"
+    assert actual == expected 
 
 
 
