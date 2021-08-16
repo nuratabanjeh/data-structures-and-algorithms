@@ -61,7 +61,7 @@ class BinaryTree:
     
         treeList = self.pre_order()
         print(treeList)
-        max=0
+        max=treeList[0]
         for value in treeList:
 
             if max < value :
@@ -182,7 +182,7 @@ def test_happyPath():
     treeSearch = BinarySearchTree()
     treeSearch.add(1)
     treeSearch.add(2)
-    treeSearch.add(3)
+    treeSearch.add(-3)
     treeSearch.add(40)
     actual = treeSearch.tree_max()
     expected = 40

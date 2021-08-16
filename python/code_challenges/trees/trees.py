@@ -60,7 +60,7 @@ class BinaryTree:
     
         treeList = self.pre_order()
         print(treeList)
-        max=0
+        max=treeList[0]
         for value in treeList:
 
             if max < value :
@@ -125,9 +125,9 @@ class BinarySearchTree(BinaryTree):
 
 if __name__ == "__main__":
     tree = BinarySearchTree()
-    tree.add(1)
+    tree.add(-1)
     tree.add(2)
-    tree.add(3)
+    tree.add(-3)
     tree.add(70)
     # print(tree.root.left,'************')
     # print(tree.pre_order())
