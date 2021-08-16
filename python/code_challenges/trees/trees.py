@@ -73,6 +73,10 @@ class BinaryTree:
 
 
 
+
+
+
+
 class BinarySearchTree(BinaryTree):
     def add(self,value):
         
@@ -125,8 +129,8 @@ class BinarySearchTree(BinaryTree):
 
 if __name__ == "__main__":
     tree = BinarySearchTree()
-    tree.add(1)
-    tree.add(2)
+    tree.add(5)
+    tree.add(7)
     tree.add(3)
     tree.add(70)
     # print(tree.root.left,'************')
@@ -138,3 +142,5 @@ if __name__ == "__main__":
     # print(tree.contains(5))
 
     ## [2,1,4,3]
+
+    print(tree.breadth_first())
