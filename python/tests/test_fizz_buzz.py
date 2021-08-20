@@ -57,7 +57,9 @@ class BinaryTree:
 
         
 
-
+# class K_Arr_Tree:
+#     def __init__(self):
+#         self.root = None
 
 def fizz_buzz(x):
     if type(x)is not int :
@@ -73,7 +75,6 @@ def fizz_buzz(x):
 
     else:
         return str(x)
-        
 
 def fizz_buzz_tree(k_array_tree):
     new_tree = k_array_tree
@@ -91,14 +92,24 @@ def fizz_buzz_tree(k_array_tree):
     _pre_order(new_tree.root)
     return new_tree
 
+######################test###########
 
-if __name__ == '__main__':
-    
+
+def test_fizz_buzz():
   tree = BinaryTree()
   tree.root = Node(17)
   tree.root.left = Node(15)
-  tree.root.right = Node(9)
+  tree.root.right = Node(5)
   tree.root.right.left = Node(9)
-  fizz_buzz_tree = fizz_buzz_tree(tree)
-  print(fizz_buzz_tree.root.right.value)
+  newTree=fizz_buzz_tree(tree)
+  actual = newTree.root.left.value
+  excpected = "FizzBuzz" 
+  assert actual == excpected
 
+def test_expected_faliure():
+  tree = BinaryTree()
+  tree.root = Node('nura')
+  newTree=fizz_buzz_tree(tree)
+  actual = newTree.root.value
+  excpected = "nura" 
+  assert actual == excpected
