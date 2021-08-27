@@ -1,9 +1,16 @@
 class Node:
     def __init__(self,value):
         self.value = value
-        self.left = None
-        self.right = None
+        self.value = value
+        self.children=[]
+        # self.left = None
+        # self.right = None
       
+
+class k_arr_tree:
+    def __init__(self):
+        self.root=None
+
 
 class BinaryTree:
     def __init__(self):
@@ -55,61 +62,92 @@ class BinaryTree:
         _post_order(self.root)
         return treeList
 
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
         
+    def enqueue(self, value):
+        node = Node(value)
+        if not self.front:
+            self.front=node
+            self.rear = node
+        else:
+            self.rear.next = node
+            self.rear= node
 
-# class K_Arr_Tree:
-#     def __init__(self):
-#         self.root = None
+    def dequeue(self):
+        try:
+            remove=self.front.value
+            self.front=self.front.next
+            return remove
+        except: 
+            return "empty"
 
-def fizz_buzz(x):
-    if type(x)is not int :
-        return x
-    elif x % 3 == 0 and x %5 == 0 :
-        return "FizzBuzz"
+    def peek(self):
+        try:
+            return self.front.value
+        except:
+            return("empty")
 
-    elif x % 3 == 0 :
-        return "Fizz"
+    def isEmpty(self):
+        if (not self.rear and self.front) or (self.rear and not self.front):
+          raise Exception("empty")
+        return not self.rear
 
-    elif x % 5 == 0 :
-        return "Buzz"
 
-    else:
-        return str(x)
 
-def fizz_buzz_tree(k_array_tree):
-    new_tree = k_array_tree
-    def _pre_order(root):
-            if not root:
-             return
-            new_value = fizz_buzz(root.value)  
-            root.value = new_value
-           
-            if root.left:
-                _pre_order(root.left)
-            if root.right:
-                _pre_order(root.right)
-        
-    _pre_order(new_tree.root)
-    return new_tree
 
+def fizz_Buzz_Tree(k_arr_tree): 
+
+    def append_in_tree(node):
+        if node.children : 
+            for x in range(len(node.children)): 
+                append_in_tree (node.children[x])
+
+                
+                if node.children[x].value %3 == 0 : 
+                    node.children[x].value= "Fizz"
+                elif node.children[x].value %5 == 0 : 
+                    node.children[x].value= "Buzz"
+                elif node.children[x].value %3 == 0 and node.children[x].value % 5 == 0:
+                    node.children[x].value= "Fizz Buzz"
+                else: node.children[x].value =str(node.children[x].value)
+    append_in_tree(k_arr_tree.root)            
+    if k_arr_tree.root.value %5 == 0 and k_arr_tree.root.value %3 ==0 : 
+        k_arr_tree.root.value ="Fizz Buzz"
+    if k_arr_tree.root.value %5 == 0 : 
+        k_arr_tree.root.value ="Buzz"
+    if k_arr_tree.root.value %3 ==0 : 
+        k_arr_tree.root.value ="Fizz"
+    else : 
+        k_arr_tree.root.value= str(k_arr_tree.root.value)
+
+    return k_arr_tree
 ######################test###########
 
 
 def test_fizz_buzz():
-  tree = BinaryTree()
-  tree.root = Node(17)
-  tree.root.left = Node(15)
-  tree.root.right = Node(5)
-  tree.root.right.left = Node(9)
-  newTree=fizz_buzz_tree(tree)
-  actual = newTree.root.left.value
-  excpected = "FizzBuzz" 
-  assert actual == excpected
+    ktree = k_arr_tree()
+  
+    ktree.root=Node(17)
+    ktree.root.children+=[Node(15)] 
+    ktree.root.children+=[Node(5)]
+    ktree.root.children+=[Node(9)]
+    fizz_Buzz_Tree(ktree)
+    actual = ktree.root.children[0].value
+    excpected = "Fizz" 
+    assert actual == excpected
 
-def test_expected_faliure():
-  tree = BinaryTree()
-  tree.root = Node('nura')
-  newTree=fizz_buzz_tree(tree)
-  actual = newTree.root.value
-  excpected = "nura" 
-  assert actual == excpected
+def test_not_divisable_on_3_or_5():
+    ktree = k_arr_tree()
+  
+    ktree.root=Node(17)
+    ktree.root.children+=[Node(11)] 
+    ktree.root.children+=[Node(5)]
+    ktree.root.children+=[Node(9)]
+    fizz_Buzz_Tree(ktree)
+    actual = ktree.root.children[0].value
+    excpected = "11" 
+    assert actual == excpected
+

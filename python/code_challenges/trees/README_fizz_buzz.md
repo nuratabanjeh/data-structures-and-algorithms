@@ -18,7 +18,7 @@ Write a function called fizz buzz tree
 
 ## Whiteboard Process
 
-![img](fizzBuzz.jpg)
+![img](Fizzbuzz.jpg)
 
 ## Approach & Efficiency
 
