@@ -28,6 +28,11 @@ get neighbors: Big O (n)
 
 size: Big O (1)
 
+depth_first
+
+O(n)
+size O(n)
+
 # API
 
 add_node:

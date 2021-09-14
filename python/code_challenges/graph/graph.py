@@ -43,6 +43,28 @@ class Graph:
         return len(self._adjacency_list)
 
 
+    def depth_first(self, startV):
+        visited = []
+        def check(vertex):
+            visited.append(vertex)
+            neighbors = self.get_neighbors(vertex)
+            for neighbor in neighbors:
+                if neighbor[0] not in visited:
+                    check(neighbor[0])
 
+        check(startV)
+        return visited
+  
+if __name__ == "__main__":
+    graph = Graph()
+    graph.add_vertex('A')
+    graph.add_vertex('B')
+    graph.add_vertex('C')
+    graph.add_vertex('D')
+    graph.add_edge('A','C')
+    graph.add_edge('A','B')
+    graph.add_edge('C','D')
+    graph.add_edge('B','A')
+    print(graph.depth_first('A'))
 
  
